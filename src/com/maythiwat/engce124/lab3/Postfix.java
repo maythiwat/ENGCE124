@@ -1,15 +1,15 @@
 package com.maythiwat.engce124.lab3;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Postfix {
     private static int precedence(char op) {
+        // brackets will check by other statement
         return switch (op) {
             case '+', '-' -> 1;
             case '*', '/', '%' -> 2;
             case '^' -> 3;
-            default -> -1;
+            default -> -1; // operand or invalid etc.
         };
     }
 
@@ -34,7 +34,7 @@ public class Postfix {
                 out.append(s, i, j);
                 i = j - 1;
             }
-            // -- letter
+            // -- letter (operand)
             else if (Character.isLetter(c)) {
                 out.append(c);
             }
@@ -78,10 +78,10 @@ public class Postfix {
                 continue;
             }
 
-            System.out.println("IN: " + c + ", S: " + op + ", OUT: " + out);
+            System.out.println("IN: " + c + "\t S: " + op + "\t OUT: " + out);
         }
 
-        // เท operator ที่เหลือ
+        // pop remaining operator
         while (!op.isEmpty()) {
             char t = (char) op.pop();
             if (t == '(' || t == ')') {
@@ -127,7 +127,7 @@ public class Postfix {
 
     public static float evaluate(String postfix, char[] operands, float[] values) {
         Stack stack = new Stack(postfix.length());
-        StringBuilder num = new StringBuilder();
+        StringBuilder num = new StringBuilder(); // store unparsed number string from user
 
         for (int i = 0; i < postfix.length(); i++) {
             char c = postfix.charAt(i);
@@ -137,6 +137,7 @@ public class Postfix {
             }
             // -- end of number
             else {
+                // -- util
                 if (!num.isEmpty()) {
                     // -- clear number, and push to stack
                     float val = Float.parseFloat(num.toString());
@@ -144,6 +145,7 @@ public class Postfix {
                     num.setLength(0);
                 }
 
+                // -- process operator
                 if (isOperator(c)) {
                     // -- top is right, lower is left
                     float b = (float) stack.pop();
@@ -179,7 +181,7 @@ public class Postfix {
                 }
             }
 
-            System.out.println("IN: " + c + ", S: " + Arrays.toString(stack.asArray()) + ", OUT: " + stack.top());
+            // System.out.println("IN: " + c + ", S: " + Arrays.toString(stack.asArray()) + ", OUT: " + stack.top());
         }
 
         // -- remaining number

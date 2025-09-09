@@ -14,7 +14,7 @@ public class List {
         arr = new int[x];
     }
 
-    void add(int value) {
+    public void add(int value) {
         if (arr.length == count) {
             arr = Arrays.copyOf(arr, arr.length * 2);
         }
@@ -22,7 +22,7 @@ public class List {
         count++;
     }
 
-    void remove(int idx) {
+    public void remove(int idx) {
         if (idx >= 0 && idx < count) {
             for (int i = idx; i < count - 1; i++) {
                 arr[i] = arr[i + 1];
@@ -31,7 +31,7 @@ public class List {
         }
     }
 
-    int search(int value) {
+    public int search(int value) {
         int idx = -1;
         if (count > 0) {
             for (int i = 0; i < count; i++) {
@@ -44,13 +44,31 @@ public class List {
         return idx;
     }
 
-    void show() {
+    public void show() {
         for (int i = 0; i < count; i++)
             System.out.print(arr[i] + " ");
         System.out.println();
     }
 
-    int size() {
+    public int size() {
         return count;
+    }
+
+    public void insert(int k, int item) {
+        if (k >= 0 && k <= count) {
+            if (count == arr.length) {
+                arr = Arrays.copyOf(arr, arr.length * 2);
+            }
+
+            int j = count - 1; // last idx
+            while (j >= k) { // until k
+                arr[j + 1] = arr[j]; // send to right
+                j--;
+            }
+
+            // insert new item to k
+            arr[k] = item;
+            count++;
+        }
     }
 }

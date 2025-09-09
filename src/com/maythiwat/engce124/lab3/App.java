@@ -9,6 +9,8 @@ public class App {
         String infix = sc.nextLine().replace(" ", "");
 
         String postfix = Postfix.fromInfix(infix);
+        System.out.println("Postfix: " + postfix);
+
         float result = Postfix.evaluate(postfix);
 
         System.out.println();
