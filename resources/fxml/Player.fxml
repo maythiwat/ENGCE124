@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.maythiwat.engce124.lab4v2.PlayerScene">
+    <children>
+        <Button layoutX="6.0" layoutY="567.0" mnemonicParsing="false" onAction="#onAddSongBtnAction" prefHeight="25.0" prefWidth="101.0" text="Add Song" />
+        <ImageView fitHeight="150.0" fitWidth="349.0" layoutX="6.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@/media/javamp.png" />
+            </image>
+        </ImageView>
+        <ListView fx:id="listView" layoutX="6.0" layoutY="144.0" prefHeight="414.0" prefWidth="349.0" />
+        <Button layoutX="111.0" layoutY="567.0" mnemonicParsing="false" onAction="#onDeleteBtnAction" prefHeight="25.0" prefWidth="74.0" text="Delete" />
+      <Button layoutX="188.0" layoutY="567.0" mnemonicParsing="false" onAction="#onInsBeforeBtnAction" prefHeight="25.0" prefWidth="82.0" text="Ins Before" />
+      <Button layoutX="273.0" layoutY="567.0" mnemonicParsing="false" onAction="#onInsAfterBtnAction" prefHeight="25.0" prefWidth="82.0" text="Ins After" />
+      <Button layoutX="89.0" layoutY="113.0" mnemonicParsing="false" onAction="#onPlayBtnAction" prefHeight="25.0" prefWidth="183.0" text="Play/Pause" />
+      <Button layoutX="6.0" layoutY="113.0" mnemonicParsing="false" onAction="#onPrevBtnAction" prefHeight="25.0" prefWidth="74.0" text="&lt;&lt;&lt; Prev" />
+      <Button layoutX="280.0" layoutY="113.0" mnemonicParsing="false" onAction="#onNextBtnAction" prefHeight="25.0" prefWidth="74.0" text="Next &gt;&gt;&gt;" />
+    </children>
+</AnchorPane>
